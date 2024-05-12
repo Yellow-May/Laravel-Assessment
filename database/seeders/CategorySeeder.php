@@ -24,14 +24,7 @@ class CategorySeeder extends Seeder
             ["name" => "Others"],
         ];
 
-        foreach ($categories as $category) {
-            // Check if category already exists
-            $exists = Category::where("name", $category['name'])->exists();
-
-            if (!$exists) {
-                // Create a new category
-                Category::factory()->create($category);
-            }
-        }
+        // Create categories
+        Category::factory()->create($categories);
     }
 }

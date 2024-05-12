@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
+    use WithoutModelEvents;
     /**
      * Run the database seeds.
      */
@@ -17,14 +18,10 @@ class UserSeeder extends Seeder
         // Create admin user
         $user = ["name" => "Admin", "email" => "admin@example.com", "password" => "password"];
 
-        $exits = User::where('email', $user['email'])->exists();
-
-        if (!$exits) {
-            User::factory()->create([
-                'name' => $user['name'],
-                'email' => $user['email'],
-                'password' => Hash::make($user['password']),
-            ]);
-        }
+        User::factory()->create([
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'password' => Hash::make($user['password']),
+        ]);
     }
 }
