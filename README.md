@@ -5,7 +5,7 @@
 First update .env file with DB credentials
 
 ```shell
-composer install && php artisan install && php artisan migrate && php artisan db:see && php artisan serve
+composer install && php artisan storage:link && php artisan migrate && php artisan db:seed && php artisan serve
 ```
 
 ## Features
