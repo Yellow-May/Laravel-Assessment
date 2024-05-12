@@ -25,6 +25,8 @@ class CategorySeeder extends Seeder
         ];
 
         // Create categories
-        Category::factory()->create($categories);
+        foreach ($categories as $category) {
+            Category::factory()->create($category);
+        }
     }
 }
